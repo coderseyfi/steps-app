@@ -40,10 +40,10 @@
 
       // "State"
       let step = 1;
-
+  
       // Manually updating the DOM: changing text content and adding/removing classes (imperative approach)
       const updateUIValues = function () {
-        message.textContent = `Step ${step}: ${messages[step - 1]}`;
+      message.textContent = `Step ${step}: ${messages[step - 1]}`;
 
         if (step >= 1) step1.classList.add('active');
         else step1.classList.remove('active');

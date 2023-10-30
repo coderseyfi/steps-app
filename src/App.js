@@ -3,11 +3,20 @@ import close from './close.svg'
 
 const messages = [
   'First of all you can do this 🫵',
-  'Learn react and do well 👾',
+  'Learn react and do well ⚛️',
   'Apply jobs 🤖',
 ]
 
-function App() {
+export default function App() {
+  return (
+    <div>
+      <Steps />
+      <Steps />
+    </div>
+  )
+}
+
+function Steps() {
   const [step, setStep] = useState(1)
   const [isOpen, setIsOpen] = useState(true)
   //dont write state with manually for example with let use react features give us
@@ -23,7 +32,7 @@ function App() {
   }
 
   return (
-    <>
+    <div>
       {isOpen ? (
         <div className="steps">
           <div className="numbers">
@@ -60,8 +69,6 @@ function App() {
 
         //state i update etdiyin zaman callback cagir
       )}
-    </>
+    </div>
   )
 }
-
-export default App
