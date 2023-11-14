@@ -40,25 +40,22 @@ function Steps() {
             <div className={step >= 3 ? 'active' : ''}>3</div>
           </div>
 
-          <p className="message">
+          {/* bu componentin ichine yazilan childrendir qebul edende props.children */}
+          <StepMessage step={step}>
             Step : {step} {messages[step - 1]}
-          </p>
+          </StepMessage>
 
           <div className="buttons">
-            <button
-              style={{ backgroundColor: '#7950f2', color: '#fff' }}
-              onClick={handlePrevios}>
-              Previous
-            </button>
-            <button
-              style={{ backgroundColor: '#7950f2', color: '#fff' }}
-              onClick={handleNext}>
-              Next
-            </button>
+            <Button bgColor="#7950f2" textColor="#fff" onClick={handlePrevios}>
+              <span>👈</span>Previous
+            </Button>
+            <Button bgColor="#7950f2" textColor="#fff" onClick={handleNext}>
+              Next <span>👉</span>
+            </Button>
           </div>
 
           <div onClick={() => setIsOpen((is) => false)} className="close">
-            <img src={close} alt="" />
+            <img src={close} alt="close" />
           </div>
         </div>
       ) : (
@@ -69,5 +66,18 @@ function Steps() {
         //state i update etdiyin zaman callback cagir
       )}
     </div>
+  )
+}
+
+function StepMessage({ step, children }) {
+  return <p className="message">{children}</p>
+}
+function Button({ textColor, bgColor, onClick, children }) {
+  return (
+    <button
+      style={{ backgroundColor: bgColor, color: textColor }}
+      onClick={onClick}>
+      {children}
+    </button>
   )
 }
